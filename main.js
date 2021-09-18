@@ -24,7 +24,7 @@ client.once('ready', () => {
     client.user.setActivity('!help for commands!');
 });
 
-/*
+/* big monke
 client.on("voiceStateUpdate", (oldVoiceState, newVoiceState) => { // Listeing to the voiceStateUpdate event
     const vc = newVoiceState.member.voice.channel;
 
