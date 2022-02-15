@@ -11,7 +11,7 @@ module.exports = {
             {name: '.help', value: 'Displays the help menu'},
             {name: '.ping', value: "Returns the bot's latency"},
             {name: '.pong', value: ';)'},
-            {name: '.sus', value: 'Declares the user as the imposter'},
+            {name: '.sus', value: 'Is the user sus or not? Find out with this command ;)'},
             {name: '.women', value: 'Sends a gif of a woman acting surprised after hammering a hole in the wall'},
             {name: '.snipe', value: 'Returns the most recently deleted message'},
             {name: '.hehe', value: 'Paimon yells at you in vc'})
