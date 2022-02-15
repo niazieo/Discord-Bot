@@ -10,12 +10,12 @@ module.exports = {
     async execute(message, args, cmd, client, Discord){
         const voiceChannel = message.member.voice.channel;
 
-        if (!voiceChannel) return message.channel.send('You need to be in a voice channel, dummy!');
+        if (!voiceChannel) return message.channel.send('You need to be in a voice channel!');
 
         const server_queue = queue.get(message.guild.id);
 
         if (cmd === 'play'){
-            if (!args.length) return message.channel.send('You forgot to add a link/word idiot.');
+            if (!args.length) return message.channel.send('You forgot to add a link/word.');
             let song = {}
 
             if (ytdl.validateURL(args[0])){
@@ -98,7 +98,7 @@ const skip_song = (message, server_queue) => {
 
 const stop_song = (message, server_queue) => {
     if (!message.member.voice.channel) return message.channel.send('You need to be in a channel to execute this command!');
-    message.channel.send('Peace out bitches :v:')
+    message.channel.send('Peace out :v:')
     server_queue.songs = [];
     server_queue.connection.dispatcher.end();
 }

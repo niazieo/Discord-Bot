@@ -1,5 +1,5 @@
 module.exports = (Discord, client, message) => {
-    const prefix = '!';
+    const prefix = '.';
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
     const args = message.content.slice(prefix.length).split(/ +/);
@@ -39,7 +39,7 @@ module.exports = (Discord, client, message) => {
         "MANAGE_WEBHOOKS",
         "MANAGE_EMOJIS",
       ]
-      
+    /*
     if(command.permissions.length){
         let invalidPerms = []
         for(const perm of command.permissions){
@@ -53,14 +53,25 @@ module.exports = (Discord, client, message) => {
         if (invalidPerms.length){
             return message.channel.send(`Missing Permissions: \`${invalidPerms}\``);
         }
+    }*/
+    if (message.content == `${prefix}snipe`){
+        const msg = client.snipes.get(message.channel.id)
+        if (!msg) return message.channel.send("There's nothing to snipe!")
+        const embed = new Discord.MessageEmbed()
+            .setAuthor(msg.author, msg.member.user.displayAvatarURL({dynamic : true}))
+            .setDescription(msg.content)
+            .setTimestamp();
+        message.channel.send(embed);
+    }else{
+        try{
+            command.execute(message, args, cmd, client, Discord)
+        }
+        catch(err){
+            message.channel.send('No')
+            console.log(err);
+        }
     }
 
-    try{
-        command.execute(message, args, cmd, client, Discord)
-    }
-    catch(err){
-        message.channel.send('No')
-        console.log(err);
-    }
+
 }
  

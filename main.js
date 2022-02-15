@@ -1,13 +1,19 @@
 const Discord = require('discord.js');
+const dotenv = require('dotenv');
+const math = require('mathjs');
+require('discord-reply');
+const db = require('quick.db');
 const client = new Discord.Client();
+dotenv.config();
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
+client.snipes = new Discord.Collection();
 
 ['command_handler', 'event_handler'].forEach(handler => {
     require(`./handlers/${handler}`)(client, Discord);
 })
-/*
+const fs = require('fs');
 const { VoiceChannel } = require('discord.js')
 const { OpusEncoder } = require('@discordjs/opus')
 const ytdl = require('ytdl-core')
@@ -19,10 +25,22 @@ for (const file of commandFiles){
     client.commands.set(command.name, command);
 }
 
-client.once('ready', () => {
-    console.log('Frost Bot is online!');
-    client.user.setActivity('!help for commands!');
-});
+client.on('ready', () => {
+    client.user.setActivity("Type .help for commands!", {type: "PLAYING"});
+})
+
+client.on("messageDelete", async (message) => {
+    if(message.partial) return;
+
+    client.snipes.set(message.channel.id, {
+      content: message.content,
+      author: message.author.tag,
+      member: message.member,
+      image: message.attachments.first() ? message.attachments.first().proxyURL : null
+    })
+})
+
+
 
 /* big monke
 client.on("voiceStateUpdate", (oldVoiceState, newVoiceState) => { // Listeing to the voiceStateUpdate event
@@ -61,22 +79,6 @@ client.on("voiceStateUpdate", (oldVoiceState, newVoiceState) => { // Listeing to
                 })
             })
         }
-        else if (newVoiceState.member.user.tag === 'boo#8000'){
-            vc.join().then(connection => {
-                const dispatcher = connection.play(path.join(__dirname, './sounds/chika.ogg'), {volume: 1});
-                dispatcher.on('finish', () => {
-                    vc.leave();
-                })
-            })
-        }
-        else if (newVoiceState.member.user.tag === 'Jackie#9999'){
-            vc.join().then(connection => {
-                const dispatcher = connection.play(path.join(__dirname, './sounds/lisa.ogg'), {volume: 1});
-                dispatcher.on('finish', () => {
-                    vc.leave();
-                })
-            })
-        }
         else if (newVoiceState.member.user.tag === 'SpaceJesus#4633'){
             vc.join().then(connection => {
                 const dispatcher = connection.play(path.join(__dirname, './sounds/associate.mp3'), {volume: 1});
@@ -108,4 +110,4 @@ client.on("voiceStateUpdate", (oldVoiceState, newVoiceState) => { // Listeing to
 });*/
 
 
-client.login('NzU3MDE3OTgwNjIxMDI5NDU3.X2aR7w.TnBHJvsDyMxHtK_ILfdOivMK5NM')
+client.login(process.env.TOKEN);

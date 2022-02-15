@@ -1,9 +1,10 @@
-const message = require("../events/guild/message")
+/*const message = require("../events/guild/message")
 
 module.exports = {
     name: 'clear',
     aliases: ['prune', 'purge'],
-    permissions: ["MANAGE_MESSAGES"],
+    //permissions: ["ADMINISTRATOR"],
+    botOwner: ['120392991662800896'],
     description: 'Clear messages.',
     async execute(message, args, cmd, client, Discord){
         if (!args[0]) return message.reply('Enter the amount of messages you want to delete');
@@ -17,4 +18,4 @@ module.exports = {
         })
 
     }
-}
+}*/
