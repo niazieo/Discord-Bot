@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
+  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,5 +23,8 @@
     "ytdl-core": "^4.10.1",
     "ytdl-core-discord": "^1.2.4",
     "ytsr": "^3.5.3"
+  },
+  "engines": {
+    "node": "16.7.0" 
   }
 }
