@@ -2,3 +2,4 @@
 node_modules/
 commands/meow.js
 sounds/meow.wav
+config.json
