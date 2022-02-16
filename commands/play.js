@@ -98,11 +98,10 @@ const skip_song = (message, server_queue) => {
 
 const disconnect = (message, server_queue) => {
     if (!message.member.voice.channel) return message.channel.send('You need to be in a channel to execute this command!');
-    try{ 
-        message.client.queue.delete(message.guild.id);
+    try{
         server_queue.songs = [];
         server_queue.connection.dispatcher.end();
-    } catch (error){
-        console.log(error);
+    }catch (err){
+        console.log(err);
     }
 }
