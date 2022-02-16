@@ -6,7 +6,7 @@ const fs = require('fs');
 const { finished } = require('stream');
 
 module.exports = {
-    name: 'hehe',
+    name: 'ehe',
     description: "Hehe",
 
     async execute(message, args, cmd, client, Discord){

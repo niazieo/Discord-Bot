@@ -14,7 +14,7 @@ module.exports = {
             {name: '.sus', value: 'Is the user sus or not? Find out with this command ;)'},
             {name: '.women', value: 'Sends a gif of a woman acting surprised after hammering a hole in the wall'},
             {name: '.snipe', value: 'Returns the most recently deleted message'},
-            {name: '.hehe', value: 'Paimon yells at you in vc'})
+            {name: '.ehe', value: 'Paimon yells at you in vc'})
         //.setTitle('Music Commands')
         //.setDescription('Music make you lose control!')
         .addFields(
