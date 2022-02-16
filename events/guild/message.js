@@ -67,7 +67,7 @@ module.exports = (Discord, client, message) => {
             command.execute(message, args, cmd, client, Discord)
         }
         catch(err){
-            message.channel.send('No')
+            message.channel.send('Please use a valid command.')
             console.log(err);
         }
     }
