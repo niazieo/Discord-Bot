@@ -66,7 +66,7 @@ module.exports = {
         }
 
         else if(cmd === 'skip') skip_song(message, server_queue);
-        else if(cmd === 'dc') stop_song(message, server_queue);
+        else if(cmd === 'dc') disconnect(message, server_queue);
     }
     
 }
@@ -96,7 +96,7 @@ const skip_song = (message, server_queue) => {
     server_queue.connection.dispatcher.end();
 }
 
-const stop_song = (message, server_queue) => {
+const disconnect = (message, server_queue) => {
     if (!message.member.voice.channel) return message.channel.send('You need to be in a channel to execute this command!');
     message.channel.send('Peace out :v:')
     server_queue.songs = [];

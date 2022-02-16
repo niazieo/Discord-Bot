@@ -6,7 +6,7 @@ module.exports = {
     execute(message, args, client){
         const pingEmbed = new Discord.MessageEmbed()
         .setTitle('Pong!')
-        .setDescription(`Bot Latency: ${message.createdTimestamp - Date.now()}ms`)
+        .setDescription(`Bot Latency: ${Date.now() - message.createdTimestamp}ms`)
         message.channel.send(pingEmbed)
     }
     
