@@ -6,7 +6,6 @@ const valid_command = (command) =>{
     return valid_commands.includes(command);
 }
 
-
 module.exports = (Discord, client, message) => {
     const prefix = '.';
     if (!message.content.startsWith(prefix) || message.author.bot || message.content === prefix) return;
