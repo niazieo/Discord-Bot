@@ -1,5 +1,5 @@
 const valid_commands = [
-    "help","ping","pong","sus","women","snipe","ehe","play","skip","dc"
+    ".help",".ping",".pong",".sus",".women",".snipe",".ehe",".play",".skip",".dc"
 ]
 
 const valid_command = (command) =>{
