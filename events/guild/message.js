@@ -1,15 +1,15 @@
-const valid_commands = [
-    ".help",".ping",".pong",".sus",".women",".snipe",".ehe",".play",".skip",".dc"
-]
+// const valid_commands = [
+//     ".help",".ping",".pong",".sus",".women",".snipe",".ehe",".play",".skip",".dc"
+// ]
 
-const valid_command = (command) =>{
-    return valid_commands.includes(command);
-}
+// const valid_command = (command) =>{
+//     return valid_commands.includes(command);
+// }
 
 module.exports = (Discord, client, message) => {
     const prefix = '.';
     if (!message.content.startsWith(prefix) || message.author.bot || message.content === prefix) return;
-    if(!valid_command(message.content)) return;
+    //if(!valid_command(message.content)) return;
 
     const args = message.content.slice(prefix.length).split(/ +/);
     const cmd = args.shift().toLowerCase();
@@ -76,7 +76,6 @@ module.exports = (Discord, client, message) => {
             command.execute(message, args, cmd, client, Discord)
         }
         catch(err){
-            message.channel.send('Please use a valid command.')
             console.log(err);
         }
     }
